@@ -1,0 +1,1 @@
+{"credit":"beer/tools/brewing_models.py","parent":"minecraft:block/block","textures":{"0":"beer:block/brewing","particle":"beer:block/brewing"},"elements":[{"name":"surface","from":[3,12,3],"to":[13,12,13],"faces":{"up":{"uv":[12.75,8.75,15.25,11.25],"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0],"translation":[0,-1.5,0],"scale":[0.55,0.55,0.55]}}}

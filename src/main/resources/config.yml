@@ -1,0 +1,82 @@
+# Beer configuration. Apply changes with /beer reload.
+
+growth:
+  # Multiplies how fast barley and hops grow. 1.0 = like wheat (barley ripens in about 25-40 minutes at
+  # randomTickSpeed 3; hops climb a little slower).
+  speed: 1.0
+  # Light level (sky or block light) the crops need to grow, like wheat's 9.
+  min-light: 9
+
+seeds:
+  # Chance that breaking grass drops Barley (plains, savanna and meadow biomes) or Hops (taiga and forest biomes).
+  # Both are their own seed.
+  barley-grass-chance: 0.03
+  hops-grass-chance: 0.015
+  # Chance that a village house chest holds 1-3 Barley (plains and savanna houses) or Hops (taiga houses).
+  village-chest-chance: 0.25
+  # Chance that a wandering trader sells Hops (1 emerald -> 2).
+  wandering-trader-chance: 0.5
+
+barley:
+  # A ripe barley plant drops this range (+1 per Fortune level); right-clicking it harvests and replants.
+  drops: [2, 4]
+
+hops:
+  # Right-clicking ripe hops picks this many cones and the bine goes back to leafy.
+  cones: [2, 4]
+  # How fast picked hops flower and ripen again: 1.0 is about 8 minutes on wet farmland.
+  regrow-speed: 1.0
+
+brewing:
+  # A Brew Kettle with water, 4 grain and a hop boils this long over heat (the timer pauses without heat).
+  boil-minutes: 3
+  # Mugs one barrel batch pours.
+  mugs-per-batch: 8
+
+fermenting:
+  # A Fermenting Barrel makes an ale (warm) or a lager (touching ice or snow, or in a snowy biome). /beer skip, looking
+  # at a barrel, makes it ready at once.
+  ale-minutes: 20
+  lager-minutes: 20
+  # Beer poured this long after the barrel was filled gets +1 star, or +2 after the long wait. It never goes off.
+  aged-minutes: 60
+  long-aged-minutes: 180
+
+effects:
+  # Each beer gives its colour's base effect, Strength when Hoppy, and its extra's and legend's effects. Durations grow
+  # with the stars; lagers last 1.5x as long. Set enabled: false to make beer cosmetic (Tipsy still applies).
+  enabled: true
+  duration-multiplier: 1.0
+
+tipsy:
+  # Each mug adds 1 Tipsy (Strong beers 2), and it drops by 1 every decay-minutes. At 3 the world wobbles now and then.
+  # Bread takes 1 off, a Milk Bucket 2. enabled: false makes beers only buffs.
+  enabled: true
+  # At 5 you pass out for a moment and wake with a hangover.
+  pass-out: true
+  decay-minutes: 2
+
+automation:
+  # Hoppers feed a Brew Kettle grain, hops and its extra, and a Fermenting Barrel empty mugs; once the beer has had the
+  # long wait, the hopper below the barrel takes them out filled. A Brew Kettle whose tap faces an empty Fermenting
+  # Barrel pours its wort straight in when it is done.
+  hoppers: true
+  # A dispenser with shears harvests and replants ripe barley in front of it, or picks ripe hops. A dispenser with a
+  # Water Bucket fills a Brew Kettle.
+  dispensers: true
+
+crops:
+  # How far away crops are drawn, in blocks (scaled by the client's entity distance setting).
+  view-distance: 48
+
+resource-pack:
+  # Serve the bundled pack over HTTP and send it to players on join. Turn off if you merge
+  # plugins/Beer/beer-pack.zip into your own server pack instead. Use a different port from other plugins' packs
+  # (Maty uses 8164).
+  host-enabled: true
+  port: 8165
+  # Base URL players download from, for example https://example.com:8165. Empty = the address they joined with.
+  public-url: ""
+  required: false
+  # MiniMessage text shown in the download prompt.
+  prompt: "<gold>Beer</gold> adds custom crop, furniture and mug models."

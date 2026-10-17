@@ -1,0 +1,11 @@
+name: Beer
+version: ${version}
+main: com.beer.BeerPlugin
+api-version: '1.21'
+authors: [EightL]
+description: Grow barley and hops, malt, brew and ferment beer, and drink it with friends.
+permissions:
+  beer.journal:
+    default: true
+  beer.admin:
+    default: op
